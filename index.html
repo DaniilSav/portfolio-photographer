@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна Смирнова — Фотограф</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo">Анна Смирнова</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#about">Обо мне</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#services">Услуги</a>
+      <a href="#booking" class="nav-cta">Записаться</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://picsum.photos/seed/anna-hero/1600/1000" alt="" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="eyebrow">Фотограф</p>
+    <h1>Анна Смирнова</h1>
+    <p class="tagline">Портретная и семейная съёмка</p>
+    <a href="#booking" class="btn btn-primary">Записаться на съёмку</a>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="section-eyebrow">Портфолио</p>
+    <h2 class="section-title">Галерея работ</h2>
+    <div class="gallery-grid">
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna1/600/750" alt="Работа из портфолио 1" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna2/600/750" alt="Работа из портфолио 2" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna3/600/750" alt="Работа из портфолио 3" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna4/600/750" alt="Работа из портфолио 4" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna5/600/750" alt="Работа из портфолио 5" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna6/600/750" alt="Работа из портфолио 6" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna7/600/750" alt="Работа из портфолио 7" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna8/600/750" alt="Работа из портфолио 8" loading="lazy"></figure>
+      <figure class="gallery-item"><img src="https://picsum.photos/seed/anna9/600/750" alt="Работа из портфолио 9" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-photo">
+      <img src="https://picsum.photos/seed/anna-portrait/700/860" alt="Анна Смирнова">
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">Обо мне</p>
+      <h2 class="section-title">Снимаю живые эмоции, а не постановочные кадры</h2>
+      <p>Меня зовут Анна, и уже более 5 лет я помогаю людям сохранять самые тёплые моменты их жизни в кадре. Мой стиль — светлый, естественный, немного воздушный: минимум постановки, максимум настоящих эмоций.</p>
+      <p>Я работаю с мягким natural-light светом и живыми, невыхолощенными сюжетами — будь то портретная съёмка, семейная история или романтичная love story пары.</p>
+      <ul class="about-stats">
+        <li><span class="stat-num">5+</span><span class="stat-label">лет опыта</span></li>
+        <li><span class="stat-num">300+</span><span class="stat-label">довольных клиентов</span></li>
+        <li><span class="stat-num">100%</span><span class="stat-label">живые эмоции</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-eyebrow">Прайс</p>
+    <h2 class="section-title">Услуги</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/anna-service1/500/380" alt="Портретная съёмка">
+        <div class="service-body">
+          <h3>Портретная съёмка</h3>
+          <p>Индивидуальная фотосессия, раскрывающая вашу естественную красоту и характер.</p>
+          <p class="price">от 5 000 ₽</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/anna-service2/500/380" alt="Семейная съёмка">
+        <div class="service-body">
+          <h3>Семейная съёмка</h3>
+          <p>Тёплые, живые кадры всей семьи — дома, на прогулке или в студии.</p>
+          <p class="price">от 8 000 ₽</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://picsum.photos/seed/anna-service3/500/380" alt="Love story">
+        <div class="service-body">
+          <h3>Love story</h3>
+          <p>История любви двоих в кадре — нежно, романтично и без лишней постановки.</p>
+          <p class="price">от 7 000 ₽</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container booking-inner">
+    <div class="booking-text">
+      <p class="section-eyebrow">Запись</p>
+      <h2 class="section-title">Давайте создадим красивые кадры вместе</h2>
+      <p>Оставьте заявку — я свяжусь с вами в течение дня, чтобы обсудить детали съёмки.</p>
+    </div>
+    <form class="booking-form" id="bookingForm" novalidate>
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" placeholder="Как вас зовут?" autocomplete="name">
+        <span class="error-message" id="nameError"></span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+        <span class="error-message" id="phoneError"></span>
+      </div>
+      <div class="form-group">
+        <label for="date">Дата съёмки</label>
+        <input type="date" id="date" name="date" autocomplete="off">
+        <span class="error-message" id="dateError"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      <p class="form-success" id="formSuccess">Спасибо! Заявка отправлена — я свяжусь с вами в ближайшее время.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-logo">Анна Смирнова</p>
+    <p class="footer-note">Портретная и семейная съёмка · Москва</p>
+    <p class="footer-copy">© 2026 Анна Смирнова. Все фотографии — placeholder-изображения.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
