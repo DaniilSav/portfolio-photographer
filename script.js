@@ -31,6 +31,65 @@ phoneInput.addEventListener('input', (e) => {
   e.target.value = formatted;
 });
 
+// Testimonials carousel
+const track = document.getElementById('carouselTrack');
+const slides = Array.from(track.children);
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const dotsContainer = document.getElementById('carouselDots');
+const AUTOPLAY_DELAY = 5000;
+
+let currentIndex = 0;
+let autoplayTimer = null;
+
+// Build one dot per slide, wiring each to jump straight to that slide
+slides.forEach((_, index) => {
+  const dot = document.createElement('button');
+  dot.classList.add('carousel-dot');
+  dot.setAttribute('aria-label', `Отзыв ${index + 1}`);
+  dot.addEventListener('click', () => {
+    goToSlide(index);
+    restartAutoplay();
+  });
+  dotsContainer.appendChild(dot);
+});
+
+const dots = Array.from(dotsContainer.children);
+
+function goToSlide(index) {
+  // Wrap around in both directions so prev/next never runs out of slides
+  currentIndex = (index + slides.length) % slides.length;
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+}
+
+function startAutoplay() {
+  autoplayTimer = setInterval(() => goToSlide(currentIndex + 1), AUTOPLAY_DELAY);
+}
+
+function restartAutoplay() {
+  clearInterval(autoplayTimer);
+  startAutoplay();
+}
+
+prevBtn.addEventListener('click', () => {
+  goToSlide(currentIndex - 1);
+  restartAutoplay();
+});
+
+nextBtn.addEventListener('click', () => {
+  goToSlide(currentIndex + 1);
+  restartAutoplay();
+});
+
+// Pause autoplay while the cursor is over the carousel, resume on leave
+const carouselEl = document.querySelector('.testimonial-carousel');
+carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+carouselEl.addEventListener('mouseleave', startAutoplay);
+
+goToSlide(0);
+startAutoplay();
+
 // Booking form validation
 const form = document.getElementById('bookingForm');
 const nameInput = document.getElementById('name');
