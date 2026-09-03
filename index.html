@@ -21,6 +21,8 @@
       <a href="#about">Обо мне</a>
       <a href="#gallery">Галерея</a>
       <a href="#services">Услуги</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="#location">Студия</a>
       <a href="#booking" class="nav-cta">Записаться</a>
     </nav>
   </div>
@@ -145,6 +147,67 @@
   </div>
 </section>
 
+<section class="calculator" id="calculator">
+  <div class="container">
+    <p class="section-eyebrow">Расчёт стоимости</p>
+    <h2 class="section-title">Калькулятор съёмки</h2>
+    <div class="calculator-inner">
+      <form class="calculator-form" id="calculatorForm">
+        <div class="form-group">
+          <label for="calcType">Тип съёмки</label>
+          <select id="calcType">
+            <option value="5000">Портретная</option>
+            <option value="8000">Семейная</option>
+            <option value="7000">Love story</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calcDuration">Длительность</label>
+          <select id="calcDuration">
+            <option value="1">1 час</option>
+            <option value="2">2 часа</option>
+            <option value="3">3 часа</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calcLocation">Локация</label>
+          <select id="calcLocation">
+            <option value="0">Студия</option>
+            <option value="0">На улице</option>
+            <option value="1500">Выезд на дом</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calcPhotos">Количество обработанных фото</label>
+          <select id="calcPhotos">
+            <option value="0">15 фото</option>
+            <option value="1500">25 фото</option>
+            <option value="3000">40 фото</option>
+          </select>
+        </div>
+        <div class="form-group calculator-extras">
+          <span class="calculator-extras-label">Дополнительные услуги</span>
+          <label class="checkbox-label">
+            <input type="checkbox" id="calcVideo" value="3000"> Видеосъёмка процесса (+3 000 ₽)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="calcSecondPhotographer" value="4000"> Второй фотограф (+4 000 ₽)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="calcRush" value="2000"> Срочная обработка за 24 часа (+2 000 ₽)
+          </label>
+        </div>
+      </form>
+      <div class="calculator-result">
+        <p class="calculator-result-label">Ориентировочная стоимость</p>
+        <p class="calculator-total" id="calculatorTotal">5 000 ₽</p>
+        <p class="calculator-note">Точная цена зависит от деталей проекта и уточняется при бронировании.</p>
+        <a href="#booking" class="btn btn-primary btn-block">Записаться на эту съёмку</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="booking" id="booking">
   <div class="container booking-inner">
     <div class="booking-text">
@@ -171,6 +234,32 @@
       <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
       <p class="form-success" id="formSuccess">Спасибо! Заявка отправлена — я свяжусь с вами в ближайшее время.</p>
     </form>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="container location-inner">
+    <div class="location-text">
+      <p class="section-eyebrow">Студия</p>
+      <h2 class="section-title">Где проходят съёмки</h2>
+      <p>Студийные съёмки проходят по адресу: <strong>г. Москва, ул. Тверская, 15</strong>, студия «Свет и тень», 3 этаж.</p>
+      <p>Также доступны выездные съёмки — в городе, на природе или у вас дома.</p>
+      <ul class="location-details">
+        <li><span class="location-icon">📍</span> ул. Тверская, 15, Москва</li>
+        <li><span class="location-icon">🕐</span> Ежедневно, 10:00–20:00, по записи</li>
+        <li><span class="location-icon">🚇</span> м. Тверская — 5 минут пешком</li>
+      </ul>
+      <a href="https://maps.google.com/?q=Москва,+Тверская+улица+15" target="_blank" rel="noopener" class="btn btn-primary">Построить маршрут</a>
+    </div>
+    <div class="location-map">
+      <iframe
+        src="https://www.google.com/maps?q=Москва,Тверская+улица+15&output=embed"
+        width="100%" height="380" style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Карта: расположение студии"></iframe>
+    </div>
   </div>
 </section>
 

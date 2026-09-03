@@ -90,6 +90,38 @@ carouselEl.addEventListener('mouseleave', startAutoplay);
 goToSlide(0);
 startAutoplay();
 
+// Shoot cost calculator
+const calcType = document.getElementById('calcType');
+const calcDuration = document.getElementById('calcDuration');
+const calcLocation = document.getElementById('calcLocation');
+const calcPhotos = document.getElementById('calcPhotos');
+const calcVideo = document.getElementById('calcVideo');
+const calcSecondPhotographer = document.getElementById('calcSecondPhotographer');
+const calcRush = document.getElementById('calcRush');
+const calculatorTotal = document.getElementById('calculatorTotal');
+
+const EXTRA_HOUR_PRICE = 2500;
+
+function calculateTotal() {
+  const basePrice = Number(calcType.value);
+  const extraHours = Number(calcDuration.value) - 1;
+  const durationPrice = extraHours * EXTRA_HOUR_PRICE;
+  const locationPrice = Number(calcLocation.value);
+  const photosPrice = Number(calcPhotos.value);
+
+  const extrasPrice = [calcVideo, calcSecondPhotographer, calcRush]
+    .filter((checkbox) => checkbox.checked)
+    .reduce((sum, checkbox) => sum + Number(checkbox.value), 0);
+
+  const total = basePrice + durationPrice + locationPrice + photosPrice + extrasPrice;
+  calculatorTotal.textContent = `${total.toLocaleString('ru-RU')} ₽`;
+}
+
+[calcType, calcDuration, calcLocation, calcPhotos, calcVideo, calcSecondPhotographer, calcRush]
+  .forEach((field) => field.addEventListener('change', calculateTotal));
+
+calculateTotal();
+
 // Booking form validation
 const form = document.getElementById('bookingForm');
 const nameInput = document.getElementById('name');
