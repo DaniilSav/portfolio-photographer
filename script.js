@@ -32,6 +32,27 @@ phoneInput.addEventListener('input', (e) => {
   e.target.value = formatted;
 });
 
+// Reveal cards on scroll
+const revealEls = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window && revealEls.length) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      // Stagger cards that appear together (e.g. a gallery row) by their position among siblings
+      const siblings = Array.from(entry.target.parentElement.children);
+      const delay = (siblings.indexOf(entry.target) % 3) * 90;
+      entry.target.style.transitionDelay = `${delay}ms`;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('is-visible'));
+}
+
 // Testimonials carousel
 const track = document.getElementById('carouselTrack');
 const slides = Array.from(track.children);
