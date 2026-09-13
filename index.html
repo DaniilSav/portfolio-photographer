@@ -6,7 +6,7 @@
 <title>Анна Смирнова — Фотограф</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="#top" class="logo">Анна Смирнова</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
     <nav class="nav" id="nav">
@@ -65,7 +65,6 @@
       <img src="https://picsum.photos/seed/anna-portrait/700/860" alt="Анна Смирнова">
     </div>
     <div class="about-text">
-      <p class="section-eyebrow">Обо мне</p>
       <h2 class="section-title">Снимаю живые эмоции, а не постановочные кадры</h2>
       <p>Меня зовут Анна, и уже более 5 лет я помогаю людям сохранять самые тёплые моменты их жизни в кадре. Мой стиль — светлый, естественный, немного воздушный: минимум постановки, максимум настоящих эмоций.</p>
       <p>Я работаю с мягким natural-light светом и живыми, невыхолощенными сюжетами — будь то портретная съёмка, семейная история или романтичная love story пары.</p>
@@ -80,7 +79,6 @@
 
 <section class="testimonials" id="testimonials">
   <div class="container">
-    <p class="section-eyebrow">Отзывы</p>
     <h2 class="section-title">Что говорят клиенты</h2>
     <div class="testimonial-carousel">
       <button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Предыдущий отзыв">&#8249;</button>
@@ -110,37 +108,42 @@
       </div>
       <button class="carousel-btn carousel-next" id="nextBtn" aria-label="Следующий отзыв">&#8250;</button>
     </div>
-    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-controls">
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-pause" id="pauseBtn" type="button" aria-pressed="false">Пауза</button>
+    </div>
   </div>
 </section>
 
 <section class="services" id="services">
   <div class="container">
-    <p class="section-eyebrow">Прайс</p>
     <h2 class="section-title">Услуги</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="https://picsum.photos/seed/anna-service1/500/380" alt="Портретная съёмка">
-        <div class="service-body">
-          <h3>Портретная съёмка</h3>
-          <p>Индивидуальная фотосессия, раскрывающая вашу естественную красоту и характер.</p>
-          <p class="price">от 5 000 ₽</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <img src="https://picsum.photos/seed/anna-service2/500/380" alt="Семейная съёмка">
-        <div class="service-body">
+    <div class="services-layout">
+      <div class="service-featured">
+        <img src="https://picsum.photos/seed/anna-service2/700/560" alt="Семейная съёмка">
+        <div class="service-featured-body">
+          <span class="service-tag">Популярный выбор</span>
           <h3>Семейная съёмка</h3>
           <p>Тёплые, живые кадры всей семьи — дома, на прогулке или в студии.</p>
           <p class="price">от 8 000 ₽</p>
         </div>
       </div>
-      <div class="service-card">
-        <img src="https://picsum.photos/seed/anna-service3/500/380" alt="Love story">
-        <div class="service-body">
-          <h3>Love story</h3>
-          <p>История любви двоих в кадре — нежно, романтично и без лишней постановки.</p>
-          <p class="price">от 7 000 ₽</p>
+      <div class="service-compact-list">
+        <div class="service-compact">
+          <img src="https://picsum.photos/seed/anna-service1/240/240" alt="Портретная съёмка">
+          <div>
+            <h3>Портретная съёмка</h3>
+            <p>Индивидуальная фотосессия, раскрывающая вашу естественную красоту и характер.</p>
+            <p class="price">от 5 000 ₽</p>
+          </div>
+        </div>
+        <div class="service-compact">
+          <img src="https://picsum.photos/seed/anna-service3/240/240" alt="Love story">
+          <div>
+            <h3>Love story</h3>
+            <p>История любви двоих в кадре — нежно, романтично и без лишней постановки.</p>
+            <p class="price">от 7 000 ₽</p>
+          </div>
         </div>
       </div>
     </div>
@@ -149,7 +152,6 @@
 
 <section class="calculator" id="calculator">
   <div class="container">
-    <p class="section-eyebrow">Расчёт стоимости</p>
     <h2 class="section-title">Калькулятор съёмки</h2>
     <div class="calculator-inner">
       <form class="calculator-form" id="calculatorForm">
@@ -211,24 +213,23 @@
 <section class="booking" id="booking">
   <div class="container booking-inner">
     <div class="booking-text">
-      <p class="section-eyebrow">Запись</p>
       <h2 class="section-title">Давайте создадим красивые кадры вместе</h2>
       <p>Оставьте заявку — я свяжусь с вами в течение дня, чтобы обсудить детали съёмки.</p>
     </div>
     <form class="booking-form" id="bookingForm" novalidate>
       <div class="form-group">
         <label for="name">Имя</label>
-        <input type="text" id="name" name="name" placeholder="Как вас зовут?" autocomplete="name">
+        <input type="text" id="name" name="name" placeholder="Как вас зовут?" autocomplete="name" aria-describedby="nameError">
         <span class="error-message" id="nameError"></span>
       </div>
       <div class="form-group">
         <label for="phone">Телефон</label>
-        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" aria-describedby="phoneError">
         <span class="error-message" id="phoneError"></span>
       </div>
       <div class="form-group">
         <label for="date">Дата съёмки</label>
-        <input type="date" id="date" name="date" autocomplete="off">
+        <input type="date" id="date" name="date" autocomplete="off" aria-describedby="dateError">
         <span class="error-message" id="dateError"></span>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
@@ -240,7 +241,6 @@
 <section class="location" id="location">
   <div class="container location-inner">
     <div class="location-text">
-      <p class="section-eyebrow">Студия</p>
       <h2 class="section-title">Где проходят съёмки</h2>
       <p>Студийные съёмки проходят по адресу: <strong>г. Москва, ул. Тверская, 15</strong>, студия «Свет и тень», 3 этаж.</p>
       <p>Также доступны выездные съёмки — в городе, на природе или у вас дома.</p>

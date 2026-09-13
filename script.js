@@ -3,7 +3,8 @@ const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
 
 navToggle.addEventListener('click', () => {
-  nav.classList.toggle('open');
+  const isOpen = nav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
 nav.querySelectorAll('a').forEach((link) => {
@@ -37,10 +38,13 @@ const slides = Array.from(track.children);
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const dotsContainer = document.getElementById('carouselDots');
+const pauseBtn = document.getElementById('pauseBtn');
 const AUTOPLAY_DELAY = 5000;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let currentIndex = 0;
 let autoplayTimer = null;
+let isPaused = prefersReducedMotion;
 
 // Build one dot per slide, wiring each to jump straight to that slide
 slides.forEach((_, index) => {
@@ -64,11 +68,16 @@ function goToSlide(index) {
 }
 
 function startAutoplay() {
+  if (isPaused) return;
   autoplayTimer = setInterval(() => goToSlide(currentIndex + 1), AUTOPLAY_DELAY);
 }
 
-function restartAutoplay() {
+function stopAutoplay() {
   clearInterval(autoplayTimer);
+}
+
+function restartAutoplay() {
+  stopAutoplay();
   startAutoplay();
 }
 
@@ -82,10 +91,29 @@ nextBtn.addEventListener('click', () => {
   restartAutoplay();
 });
 
-// Pause autoplay while the cursor is over the carousel, resume on leave
+// Explicit pause/play control, reachable by keyboard and touch (not just hover)
+pauseBtn.addEventListener('click', () => {
+  isPaused = !isPaused;
+  pauseBtn.setAttribute('aria-pressed', String(isPaused));
+  pauseBtn.textContent = isPaused ? 'Продолжить' : 'Пауза';
+  if (isPaused) {
+    stopAutoplay();
+  } else {
+    startAutoplay();
+  }
+});
+
+// Pause autoplay while the cursor or keyboard focus is on the carousel
 const carouselEl = document.querySelector('.testimonial-carousel');
-carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
-carouselEl.addEventListener('mouseleave', startAutoplay);
+carouselEl.addEventListener('mouseenter', stopAutoplay);
+carouselEl.addEventListener('mouseleave', () => { if (!isPaused) startAutoplay(); });
+carouselEl.addEventListener('focusin', stopAutoplay);
+carouselEl.addEventListener('focusout', () => { if (!isPaused) startAutoplay(); });
+
+if (prefersReducedMotion) {
+  pauseBtn.setAttribute('aria-pressed', 'true');
+  pauseBtn.textContent = 'Продолжить';
+}
 
 goToSlide(0);
 startAutoplay();
@@ -135,6 +163,7 @@ const dateError = document.getElementById('dateError');
 function setError(input, errorEl, message) {
   errorEl.textContent = message;
   input.classList.toggle('invalid', Boolean(message));
+  input.setAttribute('aria-invalid', String(Boolean(message)));
 }
 
 function validateName() {
